@@ -10,12 +10,8 @@ jobs:
       - name: Makefile Setup
         run: make setup
 
-      - name: List files in the repository
+      - name: Run notebook in-place
         run: |
-          ls ${{ github.workspace }}
-
-      - name: Print Pandas Version
-        run: |
-          python -c "import pandas as pd; print(pd.__version__)"
+          jupyter nbconvert --inplace --execute Untitled.ipynb
 
       - run: echo "🍏 This job's status is ${{ job.status }}."
